@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Registro de partidas
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,22 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large"></ion-title>
     </ion-toolbar>
   </ion-header>
 
-  
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let partida of partidas" (click)="mostrarParticipantes(partida)">
+        <ion-label>
+          <h1><strong>{{ partida.juego }}</strong></h1>
+          Ganador: {{ partida.ganador }}
+          <ion-note slot="end"> {{ partida.fecha }}</ion-note>
+          <ion-note *ngIf="partida.participantes">Participantes: {{ partida.participantes }}</ion-note>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
 </ion-content>

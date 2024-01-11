@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Partida a {{juegoTitulo}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-textarea abelPlacement="floating" placeholder="Ganador" formControlName="Ganador">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea
+      abelPlacement="floating" placeholder="Jugadores" formControlName="Jugadores"
+        [autoGrow]="true"
+      >
+      </ion-textarea>
+    </ion-item>
+
+    <ion-button (click)="onSubmit()">Guardar Partida </ion-button>
+    <ion-button color="danger" [routerLink]="['../../tabs/tab2']">Salir sin Guardar</ion-button>
+  </ion-list>
+</ion-content>
+
+

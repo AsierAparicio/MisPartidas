@@ -9,15 +9,12 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-textarea abelPlacement="floating" placeholder="Ganador" formControlName="Ganador">
+      <ion-textarea abelPlacement="floating" placeholder="Ganador" #ganador>
       </ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-textarea
-      abelPlacement="floating" placeholder="Jugadores" formControlName="Jugadores"
-        [autoGrow]="true"
-      >
+      <ion-textarea abelPlacement="floating" placeholder="Jugadores" [autoGrow]="true" #jugadores>
       </ion-textarea>
     </ion-item>
 

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { bbddService } from '../../services/bbdd.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { IonTextarea } from '@ionic/angular';
+import Partida from 'src/interfaces/Partida.interface';
 
 @Component({
   selector: 'app-new-partida',
@@ -9,6 +11,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./new-partida.page.scss'],
 })
 export class NewPartidaPage implements OnInit {
+  @ViewChild('ganador') ganador!: IonTextarea;
+  @ViewChild('jugadores') jugadores!: IonTextarea;
 
   juegoTitulo: string | null = null;  // Asigna un valor por defecto, podría ser null o cualquier valor por defecto que prefieras.
 
@@ -29,8 +33,20 @@ export class NewPartidaPage implements OnInit {
     this.juegoTitulo = tituloParam ? decodeURIComponent(tituloParam) : null;
   }
   async onSubmit(){
-   const respose= await this.bbddService.addPartida(this.formulario.value)
+    var partida: Partida = {
+      Ganador : "",
+      Participantes : "",
+      Nombre_Juego : ""
+    };
+    partida.Ganador =  this.ganador.value || "";
+    partida.Participantes =  this.jugadores.value || "";
+    this.route.params.subscribe(params => {
+      partida.Nombre_Juego = params['titulo'];
+   });
+   const respose= await this.bbddService.addPartida(partida)
    console.log(respose);
 
+   console.log(partida)
+  
   }
 }

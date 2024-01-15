@@ -10,21 +10,24 @@ import Partida from '../../interfaces/Partida.interface';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  partidas!: Partida[];
+  mispartidas: Partida[] = [];
 ngOnInit():void{
-  this.bbddService.getPartidas().subscribe(partidas=>{console.log(partidas);
+  var partidas = this.bbddService.getPartidas();
+  partidas.then((partida) =>{
+    this.mispartidas=partida
   })
+  
 }
 
   constructor(public alertController: AlertController, private bbddService:bbddService) {}
 
-  /*async mostrarParticipantes(partida: Partida) {
+  async mostrarParticipantes(partida: Partida) {
     const alert = await this.alertController.create({
-      header: `Participantes en ${partida.juego}`,
-      message: partida.participantes,
+      header: `Participantes en ${partida.Nombre_Juego}`,
+      message: partida.Participantes,
       buttons: ['OK'],
     });
 
     await alert.present();
-  }*/
+  }
 }

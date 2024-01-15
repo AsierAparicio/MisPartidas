@@ -14,17 +14,17 @@
   </ion-header>
 
   <ion-content>
-<!--    <ion-list>
-      <ion-item *ngFor="let partida of partidas" (click)="mostrarParticipantes(partida)">
+<ion-list>
+      <ion-item *ngFor="let partida of mispartidas" (click)="mostrarParticipantes(partida)">
         <ion-label>
-          <h1><strong>{{ partida.juego }}</strong></h1>
-          Ganador: {{ partida.ganador }}
-          <ion-note slot="end"> {{ partida.fecha }}</ion-note>
-          <ion-note *ngIf="partida.participantes">Participantes: {{ partida.participantes }}</ion-note>
+          <h1><strong>{{ partida.Nombre_Juego }}</strong></h1>
+          <div>Ganador: {{ partida.Ganador }}</div>
+          <!--<ion-note slot="end"> {{ partida.fecha }}</ion-note>-->
+          <ion-note *ngIf="partida.Participantes">Participantes: {{ partida.Participantes }}</ion-note>
         </ion-label>
       </ion-item>
     </ion-list>
--->
+
   </ion-content>
 
 </ion-content>

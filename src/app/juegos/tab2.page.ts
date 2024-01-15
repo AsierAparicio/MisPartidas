@@ -17,6 +17,7 @@ export class Tab2Page {
     { titulo: 'Carcassone', foto: 'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fcarcassonne%2Fhome%2FVideos-Thumbnail-1920x1080.jpg-1920x1080-070b709cfd4fb6a85dbfc0ffe892bdb623e55f93.jpg' },
     { titulo: 'Sushi go Party', foto: 'https://www.juegakens.com/wp-content/uploads/2022/07/sushi-go-party.jpg' },
     { titulo: 'Mysterium', foto: 'https://cdn.akamai.steamstatic.com/steam/apps/556180/capsule_616x353.jpg?t=1694001670' },
+    { titulo: 'Isaac', foto: 'https://playsdgames.com/wp-content/uploads/2022/10/Caja-3D-BOI-Four-Souls-600.png' },
     { titulo: '7 wonders duel', foto: 'https://cdn.svc.asmodee.net/production-rprod/storage/games/7-wonders-duel/57du-3dmockup-1597826159KUURt.png' }
   ];
 }

@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Firestore } from "@angular/fire/firestore";
-import { addDoc, collection } from "firebase/firestore";
+import { Firestore, collectionData } from "@angular/fire/firestore";
+import { addDoc, collection,collectionGroup } from "firebase/firestore";
+import { Observable } from "rxjs";
 import Juego from "src/interfaces/Juego.interface";
 import Partida from "src/interfaces/Partida.interface";
 
@@ -13,8 +14,12 @@ export class bbddService{
 
 
   addPartida(partida: Partida){
-    const JuegoRef=collection(this.firestore,'partidas');
-    return addDoc(JuegoRef,partida);
+    const juegoRef=collection(this.firestore,'partidas');
+    return addDoc(juegoRef,partida);
+  }
+  getPartidas():Observable<Partida[]>{
+    const juegoRef=collection(this.firestore,'partidas');
+  return collectionData(juegoRef,{idField:'id'}) as Observable<Partida[]>
   }
 
 
